@@ -4,10 +4,10 @@ const path = require('path');
 
 async function showFiles() {
   try {
-    const files = await readdir(path.resolve(__dirname, 'secret-folder'), {withFileTypes: true});
+    let files = await readdir(path.resolve(__dirname, 'secret-folder'), {withFileTypes: true});
     // или
     //  const files = await readdir(path.join(__dirname, 'secret-folder'), {withFileTypes: true});
-    for (const file of files) {
+    for (let file of files) {
       if (file.isFile()) {
         let name = file.name.split('.')
         await stat(path.resolve(__dirname, 'secret-folder', file.name), async (e, stats) => {
