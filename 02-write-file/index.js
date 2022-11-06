@@ -12,10 +12,6 @@ rl.on('close', finish);
 
 process.on('SIGINT', finish);
 
-//  или
-// rl.on('line', (line) => { line.trim() === 'exit' ? finish() : createdFile.write(line.trim() + '\n') });
-// process.on('exit', finish);
-
 function finish() {
   process.stdout.write('Have a nice day!\n');
   process.exit();
